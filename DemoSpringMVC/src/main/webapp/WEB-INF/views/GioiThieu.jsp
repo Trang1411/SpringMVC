@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -11,22 +12,22 @@
     <title>Hiển thị nội dung từ biến bên controller (của đối tượng model)</title>
 </head>
 <body>
+<h3>forEach:</h3>
 <table>
     <tr>
         <th>ID</th>
         <th>Full Name</th>
         <th>Age</th>
     </tr>
-    <tr>
-        <td>${student.id}</td>
-        <td>${student.fullName}</td>
-        <td>${student.age}</td>
-    </tr>
-    <tr>
-        <td>${student1.id}</td>
-        <td>${student1.fullName}</td>
-        <td>${student1.age}</td>
-    </tr>
+        <c:forEach var="std" items= "${studentList}">
+            <tr>
+                <td>${std.id}</td>
+                <td>${std.fullName}</td>
+                <td>${std.age}</td>
+            </tr>
+
+        </c:forEach>
+
 </table>
 </body>
 </html>

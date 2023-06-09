@@ -17,13 +17,13 @@ import springmvcdemo.domain.User;
 public class AccountRoot {
 
     private String id;
-    @Value("$user.name")
+    @Value("${user.name}")
     private String name;
-    @Value("$user.email")
+    @Value("${user.email}")
     private String email;
-    @Value("$user.password")
+    @Value("${user.password}")
     private String password;
-    @Value("$user.role")
+    @Value("${user.role}")
     private String role;
 
 
@@ -32,8 +32,11 @@ public class AccountRoot {
 
     @Bean
     public User getAccountRoot() {
-        User user = applicationContext.getBean("accountROOT", User.class);
-        System.out.println("user ======== " + user);
+        User user = new User();
+        user.setUsername(this.name);
+        user.setId(this.id);
+        user.setRole(this.role);
+        user.setPassword(this.password);
         return user;
     }
 
